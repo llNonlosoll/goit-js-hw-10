@@ -38,7 +38,6 @@ function onInput() {
 
   fetchCountries(name)
     .then(countries => {
-      console.log(countries);
       cleanMarkup(refs.list);
       cleanMarkup(refs.about);
       if (countries.length === 1) {
