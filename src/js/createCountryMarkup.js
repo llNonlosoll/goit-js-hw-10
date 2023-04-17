@@ -1,3 +1,5 @@
+// Функція створення розмітки для однієї країни
+
 function createCountryMarkup(country) {
   return country.map(
     ({ name, capital, population, flags, languages }) =>

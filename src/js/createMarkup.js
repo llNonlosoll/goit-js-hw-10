@@ -1,3 +1,5 @@
+// Функція створення розмітки для списку країн
+
 function createMarkup(countries) {
   return countries
     .map(

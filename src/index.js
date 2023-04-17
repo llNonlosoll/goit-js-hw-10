@@ -1,17 +1,20 @@
-import debounce from 'lodash.debounce';
-import './css/styles.css';
+// Імпортуємо фунції
 import { fetchCountries } from './js/fetchCountries.js';
 import { createMarkup } from './js/createMarkup';
 import { createCountryMarkup } from './js/createCountryMarkup';
 import { cleanMarkup } from './js/cleanMarkup';
 
-const DEBOUNCE_DELAY = 300;
+// Імпортуємо стилі
+import './css/styles.css';
 
 // Імпорт Notify
 import { Notify } from 'notiflix/build/notiflix-notify-aio';
 
 // Імпорт debounce
 import debounce from 'lodash.debounce';
+
+// Створюємо змінну для збереження затримки
+const DEBOUNCE_DELAY = 300;
 
 // Створюємо селектори для відстеження DOM
 const refs = {
@@ -23,6 +26,7 @@ const refs = {
 // Додаємо слухача подій
 refs.input.addEventListener('input', debounce(onInput, DEBOUNCE_DELAY));
 
+//Функція для пошуку країни
 function onInput() {
   const name = refs.input.value.trim();
 
