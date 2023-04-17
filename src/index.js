@@ -39,17 +39,16 @@ function onInput() {
   fetchCountries(name)
     .then(countries => {
       console.log(countries);
-      if (countries.length > 10) {
-        cleanMarkup(refs.list);
+      cleanMarkup(refs.list);
+      cleanMarkup(refs.about);
+      if (countries.length === 1) {
+        refs.about.innerHTML = createCountryMarkup(countries);
+      } else if (countries.length <= 10) {
+        refs.list.innerHTML = createMarkup(countries);
+      } else {
         Notify.info(
           'Too many matches found. Please enter a more specific name.'
         );
-      } else if (countries.length >= 2 && countries.length <= 10) {
-        cleanMarkup(refs.about);
-        refs.list.innerHTML = createMarkup(countries);
-      } else if (countries.length === 1) {
-        cleanMarkup(refs.list);
-        refs.about.innerHTML = createCountryMarkup(countries);
       }
     })
     .catch(error => {
