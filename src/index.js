@@ -51,8 +51,10 @@ function onInput() {
       }
     })
     .catch(error => {
+      if (error.message === '404') {
+        Notify.failure('Oops, there is no country with that name');
+      }
       cleanMarkup(refs.list);
       cleanMarkup(refs.about);
-      Notify.failure('Oops, there is no country with that name');
     });
 }
